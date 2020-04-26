@@ -20,11 +20,11 @@ def bestAtk(pokeids, use):
     bestPokeIds = []
     if use == 'Use Super':
         for i in pokeids:
-            if pokemons.pokedex[i]['base']['Sp. Attack'] > pokemons.pokedex[i]['base']['Attack']:
+            if pokemons.pokedex[i-1]['base']['Sp. Attack'] > pokemons.pokedex[i-1]['base']['Attack']:
                 bestPokeIds.append(i)
     if use == 'Use Normal':
         for i in pokeids:
-            if pokemons.pokedex[i]['base']['Attack'] >= pokemons.pokedex[i]['base']['Sp. Attack']:
+            if pokemons.pokedex[i-1]['base']['Attack'] >= pokemons.pokedex[i-1]['base']['Sp. Attack']:
                 bestPokeIds.append(i)
     if use == 'Use Any':
         return pokeids
@@ -38,12 +38,12 @@ def better(bestPokemonIds, use):
     if use == 'Use Super':
         for i in bestPokemonIds:
             if pokemons.pokedex[i - 1]['base']['Sp. Attack'] > best:
-                best = pokemons.pokedex[i]['base']['Sp. Attack']
+                best = pokemons.pokedex[i-1]['base']['Sp. Attack']
                 bestPokemon = i
     if use == 'Use Normal':
         for i in bestPokemonIds:
             if pokemons.pokedex[i - 1]['base']['Attack'] > best:
-                best = pokemons.pokedex[i]['base']['Attack']
+                best = pokemons.pokedex[i-1]['base']['Attack']
                 bestPokemon = i
     if use == 'Use Any':
         for i in bestPokemonIds:

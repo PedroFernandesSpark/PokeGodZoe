@@ -5,24 +5,24 @@
 
 def takeLessDMG(type):
     switch = {
-        'Normal': ['Rock', 'Steel'],
-        'Fighting': ['Poison', 'Psychic', 'Rock', 'Bug', 'Fairy'],
-        'Flying': ['Electric', 'Rock', 'Steel'],
-        'Poison': ['Poison', 'Grass', 'Rock', 'Ghost'],
-        'Ground': ['Grass', 'Bug'],
-        'Rock': ['Fighting', 'Ground', 'Steel'],
-        'Bug': ['Fire', 'Fighting', 'Poison', 'Flying', 'Ghost', 'Steel', 'Fairy'],
-        'Ghost': ['Dark'],
-        'Steel': ['Fire', 'Water', 'Electric', 'Steel'],
-        'Fire': ['Fire', 'Water', 'Rock', 'Dragon'],
-        'Water': ['Water', 'Grass', 'Dragon'],
-        'Grass': ['Water', 'Ground', 'Rock'],
-        'Electric': ['Electric', 'Dragon'],
-        'Psychic': ['Psychic', 'Steel'],
-        'Ice': ['Fire', 'Water', 'Ice', 'Steel'],
-        'Dragon': ['Steel'],
-        'Fairy': ['Fire', 'Poison', 'Steel'],
-        'Dark': ['Fighting', 'Dark', 'Fairy']
+        'Normal': [],
+        'Fighting': ['Dark', 'Rock', 'Bug'],
+        'Flying': ['Grass', 'Fighting', 'Bug'],
+        'Poison': ['Poison', 'Grass', 'Fighting', 'Bug', 'Fairy'],
+        'Ground': ['Poison', 'Rock'],
+        'Rock': ['Normal', 'Fire', 'Poison', 'Flying'],
+        'Bug': ['Grass', 'Fighting', 'Ground'],
+        'Ghost': ['Poison', 'Bug'],
+        'Steel': ['Normal', 'Grass', 'Ice', 'Flying', 'Psychic', 'Bug', 'Rock', 'Dragon', 'Steel', 'Fairy'],
+        'Fire': ['Fire', 'Grass', 'Ice', 'Bug', 'Steel', 'Fairy'],
+        'Water': ['Fire', 'Water', 'Ice', 'Steel'],
+        'Grass': ['Water', 'Electric', 'Grass', 'Ground'],
+        'Electric': ['Electric', 'Flying', 'Steel'],
+        'Psychic': ['Psychic', 'Fighting'],
+        'Ice': ['Ice'],
+        'Dragon': ['Fire', 'Water', 'Electric', 'Grass'],
+        'Fairy': ['Fighting', 'Bug', 'Dark'],
+        'Dark': ['Ghost', 'Dark']
     }
     try:
         return switch[type]
@@ -73,7 +73,8 @@ def dealsMoreDMG(type):
         'Psychic': ['Fighting', 'Poison'],
         'Ice': ['Grass', 'Ground', 'Flying', 'Dragon'],
         'Dragon': ['Dragon'],
-        'Fairy': ['Fighting', 'Dragon', 'Dark']
+        'Fairy': ['Fighting', 'Dragon', 'Dark'],
+        'Dark': ['Psychic', 'Ghost']
     }
     try:
         return switch[type]
@@ -105,3 +106,29 @@ def dealsNoDMG(type):
         return switch[type]
     except:
         return 'Type not found'
+
+def dealsLessDMG(type):
+    switch = {
+        'Normal': ['Rock', 'Steel'],
+        'Fighting': ['Poison', 'Flying', 'Psychic', 'Bug', 'Fairy'],
+        'Flying': ['Electric', 'Rock', 'Steel'],
+        'Poison': ['Poison', 'Ground', 'Rock', 'Ghost'],
+        'Ground': ['Grass', 'Bug'],
+        'Rock': ['Fighting', 'Ground', 'Steel', 'Bug'],
+        'Bug': ['Fire', 'Fighting', 'Poison', 'Flying', 'Ghost', 'Steel', 'Fairy'],
+        'Ghost': ['Dark'],
+        'Steel': ['Fire', 'Water', 'Electric', 'Steel'],
+        'Fire': ['Fire', 'Water', 'Rock', 'Dragon'],
+        'Water': ['Water', 'Grass', 'Dragon'],
+        'Grass': ['Fire', 'Grass', 'Poison', 'Flying', 'Bug', 'Dragon'],
+        'Electric': ['Electric', 'Grass', 'Dragon'],
+        'Psychic': ['Psychic', 'Steel'],
+        'Ice': ['Fire', 'Water', 'Ice', 'Steel'],
+        'Dragon': ['Steel'],
+        'Fairy': ['Fire', 'Poison', 'Steel'],
+        'Dark': ['Fighting', 'Dark', 'Fairy']
+    }
+    try:
+        return switch[type]
+    except:
+        return 'type not found'

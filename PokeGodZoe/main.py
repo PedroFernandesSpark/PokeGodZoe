@@ -17,7 +17,7 @@ while (on == True):
     print('The Pokemon', name, ':')
     for i in pokemons.pokedex[search.searchPokemon(name)-1]['type']:
         type.append(search.strongTypeArray(types.takeLessDMG(i)))
-        print('Deals less Dmg', types.takeLessDMG(i))
+        print('Take less Dmg', types.takeLessDMG(i))
     for i in pokemons.pokedex[search.searchPokemon(name) - 1]['type']:
         type.append(search.weakTypeArray(types.dealsMoreDMG(i)))
         print('Deals more Dmg', types.dealsMoreDMG(i))
@@ -27,6 +27,9 @@ while (on == True):
     for i in pokemons.pokedex[search.searchPokemon(name) - 1]['type']:
         type.append(search.moreDMGTypeArray(types.takeMoreDMG(i)))
         print('Take more Dmg', types.takeMoreDMG(i))
+    for i in pokemons.pokedex[search.searchPokemon(name) - 1]['type']:
+        type.append(search.dealLessTypeArray(types.dealsLessDMG(i)))
+        print('Deals less Dmg', types.dealsLessDMG(i))
 
     use = super.atk(search.searchPokemon(name))
     best = search.bestPokemon(type)
