@@ -46,6 +46,14 @@ def immuneTypeArray(type):
 
     return immuneAgains
 
+def dealLessTypeArray(type):
+    dealsLess = []
+    for i in pokemons.pokedex:
+        for x in type:
+            if (x in i['type']):
+                dealsLess.append(i['id'])
+    return dealsLess
+
 def bestPokemon(types):
     # types is an array of arrays, it contains the id of pokemons:
     # types[0] = pokemons that takes less dmg from the pokemon chosen by the user
@@ -54,7 +62,7 @@ def bestPokemon(types):
     # types[3] = pokemons that deals more dmg from the pokemon chosen by the user
     bestPokemonIds = []
     for dmg in types[3]:
-        if dmg in types[0]:
+        if dmg in types[4]:
             if (dmg not in bestPokemonIds):
                 bestPokemonIds.append(dmg)
     # this if is used when you cant find a combination of types[0] and types[3]
@@ -63,13 +71,16 @@ def bestPokemon(types):
         for dmg in types[3]:
                 if (dmg not in bestPokemonIds):
                     bestPokemonIds.append(dmg)
-        for str in types[0]:
+        for str in types[4]:
             if (str not in bestPokemonIds):
                 bestPokemonIds.append(dmg)
     for imm in types[2]:
         if (imm not in bestPokemonIds):
             bestPokemonIds.append(imm)
     for wea in types[1]:
+        if (wea in bestPokemonIds):
+            bestPokemonIds.remove(wea)
+    for wea in types[0]:
         if (wea in bestPokemonIds):
             bestPokemonIds.remove(wea)
     return bestPokemonIds
